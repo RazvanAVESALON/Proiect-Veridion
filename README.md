@@ -1,9 +1,10 @@
 # Numbers Nobody Publishes: Economic Sizing of Opaque Licensee Entities
 **Author:** Economic Data Scientist Candidate  
 **Project:** Veridion B2B Intelligence Evaluation  
-**Client Deliverable File:** [`data/client_deliverable_licensee_estimates.csv`](file:///d:/Proiect%20Veridion/data/client_deliverable_licensee_estimates.csv)  
+**Client Deliverable File (provenance-gated):** [`data/client_deliverable_licensee_estimates.csv`](file:///d:/Proiect%20Veridion/data/client_deliverable_licensee_estimates.csv)  
+**Fetch log (every shipped figure):** [`data/verified_figures.json`](file:///d:/Proiect%20Veridion/data/verified_figures.json) · **Audit:** [`data/provenance_audit.md`](file:///d:/Proiect%20Veridion/data/provenance_audit.md)  
 **Auditable Architecture Decision Log:** [`DECISIONS.md`](file:///d:/Proiect%20Veridion/DECISIONS.md)  
-**Detailed Technical Derivations Dossier:** [`data/proxy_derivations_dossier.md`](file:///d:/Proiect%20Veridion/data/proxy_derivations_dossier.md)  
+**Superseded (unverified, kept for audit only):** [`data/superseded/`](file:///d:/Proiect%20Veridion/data/superseded/)  
 
 ---
 
@@ -20,27 +21,28 @@ Auditors will not accept *"we googled it"*. This project builds and proves an au
 ### 1. Sampling Strategy: Why This Sample?
 Rather than a random sample—which risks picking simple public entities with audited 10-K filings—we deployed **Stratified Adversarial Sampling** ([DEC-001](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-001-sampling-strategy-stratified-adversarial-sampling)). We classified all 100 licensees across an **Information Asymmetry Lens** ([DEC-004](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-004-stratification-framework-the-information-asymmetry-lens), [`data/archetypes_summary.md`](file:///d:/Proiect%20Veridion/data/archetypes_summary.md)) and selected 13 stress-test entities representing the failure boundaries of corporate data:
 
-| Entity ID | Input Name | Matched Legal Entity | Statutory Identifier | Observational Archetype & Barrier |
-| :--- | :--- | :--- | :--- | :--- |
-| `IN-028` | **WK Kellogg Co** | WK Kellogg Co | SEC CIK: 0001959348 | Corporate Carve-Out (2023 spin-off from Kellogg Co) |
-| `IN-030` | **Banca Transilvania S.A.** | Banca Transilvania S.A. | RO CUI: 5022670 | Regulated Commercial Bank (Non-turnover financial metrics) |
-| `IN-016` | **Yazaki Romania S.R.L.** | Yazaki Romania S.R.L. | RO CUI: 15412557 | Foreign Assembly Cost-Center (High labor, low turnover/head) |
-| `IN-015` | **Google Ireland Limited** | Google Ireland Limited | IE CRO: 368047 | Multinational Tax/Billing Hub (Extreme €17.7M revenue/head) |
-| `IN-061` | **MARGOT BAKERY LIMITED** | MARGOT BAKERY LIMITED | UK CoNo: 09689240 | Micro-SME Retail Bakery (Statutory P&L withheld) |
-| `IN-065` | **Tischlerei Thunemann KG** | Tischlerei Thunemann KG | DE HRA: 205396 | Master Joinery Workshop (German §264a HGB P&L exempt) |
-| `IN-094` | **Rolex SA** | Rolex SA | CH CHE: 105.962.823 | Ultra-Secretive Private Titan (Owned by Foundation, 0 filings) |
-| `IN-056` | **Anysphere** | Anysphere, Inc. (Cursor) | DE C-Corp: 6843901 | Hyper-Growth AI Startup (10x annual velocity distortion) |
-| `IN-086` | **STEYN HOLDING S.A., SPF** | STEYN HOLDING S.A., SPF | LU RCS: B168536 | Wealth Holding Shell (Statutory €0 commercial trading rule) |
-| `IN-071` | **Old Spice** | P&G / Old Spice Division | US SEC: 0000080424 | Unregistered Brand Asset (No standalone corporate entity) |
-| `IN-082` | **Wirecard AG** | Wirecard AG i.L. | DE HRB: 169227 | Bankrupt Liquidation Estate (Defunct zombie licensee) |
-| `IN-075` | **Apex Group** | `UNRESOLVABLE` | N/A | Polysemic Name Collision (Zero geographic metadata) |
-| `IN-002` | **SIEMENS HEALTHINEERS** | Siemens Healthineers AG | DE HRB: 16568 | DAX Listed Carve-out (~75% owned by Siemens AG parent) |
+| Entity ID | Input Name | Matched Entity | Identifier | Match status (fetched by `verify_figures.py`) | Why it is in the sample |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `IN-028` | **WK Kellogg Co** | WK Kellogg Co | SEC CIK 0001959348 | ✅ SEC, **deregistered 2025-10-06 (Form 15)** | Spin-off that has since disappeared from public filings |
+| `IN-030` | **Banca Transilvania S.A.** | BANCA TRANSILVANIA S.A. | RO CUI 5022670 | ✅ ANAF + MF filing | Bank: "turnover" is the wrong metric |
+| `IN-016` | **Yazaki Romania S.R.L.** | YAZAKI ROMANIA S.R.L. | RO CUI 15412557 | ✅ ANAF + MF filing | Foreign-owned plant: lots of staff, low turnover per head |
+| `IN-015` | **Google Ireland Limited** | — | — | ⏳ not fetched | Billing hub: high turnover, few staff |
+| `IN-061` | **MARGOT BAKERY LIMITED** | MARGOT BAKERY LIMITED | UK CoNo 09689240 | ✅ Companies House, Active, files *total exemption full* accounts | Micro-business: no turnover is published |
+| `IN-065` | **Tischlerei Thunemann KG** | — | — | ⏳ not fetched (earlier files conflicted) | German craft partnership |
+| `IN-094` | **Rolex SA** | ROLEX SA | CH UID CHE105962823 | ✅ ZEFIX, existing, Genève | Private company that publishes nothing |
+| `IN-056` | **Anysphere** | — | — | ⏳ not fetched | Fast-growing private startup |
+| `IN-086` | **STEYN HOLDING S.A., SPF** | — | — | ⏳ not fetched (earlier files conflicted) | Private-wealth holding (SPF) |
+| `IN-071` | **Old Spice** | The Procter & Gamble Company (owner) | SEC CIK 0000080424 | ✅ SEC (parent) | A brand, not a legal entity |
+| `IN-082` | **Wirecard AG** | — | — | ⏳ not fetched | Insolvent company |
+| `IN-075` | **Apex Group** | `UNRESOLVABLE` | — | ⛔ refused | Generic name with no country |
+| `IN-002` | **SIEMENS HEALTHINEERS** | — | — | ⏳ not fetched | Listed subsidiary of a larger group |
 
-### 2. Matching Buckets & Resolution Rules
-- **Direct Statutory Registry Match (9 entities):** Successfully resolved to official national registration numbers (SEC, Companies House, ANAF, ZEFIX, Handelsregister) via primary statutory APIs ([DEC-005](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-005-evidence-harvesting-primary-statutory-apis-vs-commercial-aggregators)).
-- **Brand-to-Parent Attribution (`IN-071` Old Spice):** Does not exist as a legal person; resolved to owner Procter & Gamble Co, carving out brand-level unit metrics.
-- **Insolvent / Post-Liquidation Entity (`IN-082` Wirecard):** Formally matched to the Munich liquidation estate (Ref: 99 IN 1308/20); operational headcount is 0.
-- **Deliberate Failure (`IN-075` Apex Group):** Without country or domain metadata, 'Apex Group' collides with at least four distinct multi-billion companies (Bermuda fund admin, US tool manufacturer, UK engineering firm, Romanian distributor). Imputing one arbitrarily is an unforced data science error. **We refused to match.** An honest gap preserves defensibility; an ungrounded guess loses a client lawsuit.
+### 2. Matching Buckets
+- **Matched, with identity fetched live (6):** IN-028, IN-030, IN-016, IN-061, IN-094, IN-071 (via its parent).
+- **Not yet confirmed: "I failed", not "does not exist" (6):** IN-015, IN-065, IN-056, IN-086, IN-082, IN-002. Every one of these has a known registry; we just never fetched from it. An earlier draft showed registry numbers for them that were never queried. Those numbers were removed ([DEC-008](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-008-part-3-the-call--provenance-audit-reverses-ship-decision)).
+- **Brand, not an entity (`IN-071` Old Spice):** matched to its owner, P&G. Whether the licence covers all of P&G or a single brand team is a question for the contract, and data cannot answer it.
+- **Exists, but its status changed (`IN-028`):** WK Kellogg filed Form 15 and left SEC reporting. Its last-filed figures describe a company that may now sit inside an acquirer.
+- **Deliberately refused (`IN-075` Apex Group):** with no country or domain, the name fits several unrelated groups. **We refused to match.** A visible gap is cheaper than a confident wrong match.
 
 ---
 
@@ -56,6 +58,10 @@ Before any evidence entered our pipeline:
    (e.g., checking turnover-per-employee: Google Ireland's €17.7M/head instantly exposes transfer pricing billing, while Yazaki Romania's €60k/head flags physical labor assembly).
 
 ### 2. Bottom-up Proxy Recipes & Scale Reproducibility
+
+> [!IMPORTANT]
+> **Methodological Distinction (Recipe vs Shipped Fact):**  
+> The derivations below show the *proxy recipes* (capacity × unit-economics) developed for each opacity tier. However, under our fail-closed provenance gate ([DEC-009](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-009-fail-closed-provenance-gate--gated-client-deliverable)), only figures fetched directly from verified statutory APIs are populated in the client CSV. Where field inputs were unverified, figures are marked `WITHHELD` in [`data/client_deliverable_licensee_estimates.csv`](file:///d:/Proiect%20Veridion/data/client_deliverable_licensee_estimates.csv) (superseded unverified drafts are archived in [`data/superseded/`](file:///d:/Proiect%20Veridion/data/superseded/) for audit).
 
 Each figure is delivered as an asymmetric interval `[Min, Best Estimate, Max]`, accompanied by its derivation formula, audit vulnerability, and global scalability class ([DEC-006](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-006-proxy-estimation-framework--deliverable-schema-the-detective-triad)):
 
@@ -93,15 +99,32 @@ Each figure is delivered as an asymmetric interval `[Min, Best Estimate, Max]`, 
 ## Part 3: The Call
 
 ### Would you ship this?
-**Yes, but strictly as a Tiered Deliverable with explicit confidence flags, never as an unhedged flat lookup table.**
+**No.** Before shipping, I ran a provenance audit on the client file: for each figure, *was it actually fetched from the source it cites?* ([DEC-008](file:///d:/Proiect%20Veridion/DECISIONS.md#dec-008-part-3-the-call--provenance-audit-reverses-ship-decision)). The file failed that check, and the way it failed is the most useful result of the exercise.
 
-- **What we ship with full confidence:** Tiers 1, 2, 3, and 6 (Audited Filings, Transfer Pricing Distinctions, Physical Unit Proxies, and Statutory Shell Forms). Every figure carries bounded intervals, derivation equations, and pricing recommendations.
-- **Where we draw the line:** We refuse to ship automated point estimates for hyper-velocity tech startups (`IN-056`) without quarterly re-metering clauses, and we refuse to impute unresolvable polysemic names (`IN-075`).
+| Provenance class | Rows | What it means |
+| :--- | :--- | :--- |
+| Identity fetched live from a registry | IN-028, IN-071 (SEC), IN-016, IN-030 (ANAF), IN-061 (Companies House), IN-094 (ZEFIX) | Entity exists and the name matches. **The financial figures for these rows were still typed in by hand.** |
+| Dossier written by hand, labelled `SUCCESS` with an official source | IN-002, IN-015, IN-056, IN-065, IN-082, IN-086 | The cited registry (CRO, Handelsregister, RCS, Delaware) was never queried. |
+| Legal-form reasoning (holds without numbers) | IN-086 (SPF ⇒ no trading), IN-082 (insolvency ⇒ no operations), IN-075 (refused match) | Defensible *if* the form/status is confirmed in the registry, which it hasn't been yet. |
 
-### What our checks still cannot see:
-1. **Intra-Year Velocity Spikes:** Statutory filings are historical snapshots with 6–18 month reporting lags. An AI startup can grow from $10M to $100M ARR while its official register record shows 5 employees.
-2. **Shadow IT & Corporate Parent Umbrella MSAs:** Even if an entity has 50 employees, software may be deployed group-wide under a global master agreement signed by a holding entity.
-3. **Subcontractor & Toll Manufacturing Dilution:** A company reporting 10 employees may run a 2,000-person factory through outsourced third-party staffing agencies, invisible on balance sheet payroll lines.
+**Three failures an analyst would catch across the table:**
+1. **WK Kellogg (`IN-028`)**: the SEC filing list we pulled ends in a **Form 15-12G** (deregistration). The file still says "ACTIVE, NYSE: KLG, standalone". The evidence was in our own dossier and nothing flagged it. The one revenue figure fetched live ($640M) also disagrees with the shipped $2.76B, and nothing flagged that either.
+2. **The files disagree with each other.** Anysphere: $1.5B ARR / 300–350 staff in the dossier vs $150M / 110 in the deliverable (10×). Thunemann: Walchum, exhibition building, €1.2M in the dossier vs Bippen, joinery, €1.35M in the deliverable. Margot Bakery and Steyn Holding each have two different addresses or registry numbers.
+3. **The proxy inputs are not observations.** Till transactions per day, workshop area, van counts and payroll accruals all read like field measurements, but nobody measured them. The *method* (capacity × unit economics) still stands; these particular *numbers* do not.
+
+**What survives:** the sampling design (Part 1), the refusal to match `IN-075`, the legal-form logic for SPF/insolvency rows, and the Part 5 register counts, which are computed from the files themselves.
+
+### What I would do before shipping (in order)
+1. **Fail closed.** Every figure must carry a `source_url` + `retrieved_at` + raw value that came out of a fetch. Anything typed by hand becomes `UNVERIFIED` and is withheld from the client file, not shipped with a confidence label.
+2. **Re-pull the RO figures from data we already have.** Yazaki Romania and Banca Transilvania file with the Ministry of Finance; their turnover and headcount are in the `data.gov.ro` 2024 files (`WEB_BL_BS_SL`, credit-institution file). That is a free, verifiable fix for 2 rows.
+3. **Automate the "would I notice?" check.** Flag status changes (15-12G, insolvency, struck-off), cross-file disagreement above 20%, and revenue/employee outside the industry band.
+4. **Rebuild the two micro-SME proxies from inputs I actually observed** (published opening hours, menu prices, Impressum, job ads), with the width of each range driven by how uncertain that input really is.
+
+### What our checks still cannot see
+- **Reporting lag:** filings run 6–18 months behind. A fast-growing company can be 10× off before any register shows it.
+- **Licence scope versus entity scope:** a 50-person subsidiary can run the software group-wide under a parent's master agreement. Entity size and seat count are different questions, and the contract text decides which one applies.
+- **Labour outside payroll:** agency staff and toll manufacturing never appear in headcount lines.
+- **Our own fabrication risk:** this audit caught hand-typed numbers only because the files contradicted each other. A fabricated number that happens to be consistent everywhere passes every internal check. Only a fetch log closes that gap.
 
 ---
 
@@ -111,10 +134,10 @@ Each figure is delivered as an asymmetric interval `[Min, Best Estimate, Max]`, 
 In auditing this licensee portfolio, we uncovered a systemic revenue leak created by contract pricing rules that rely naively on statutory turnover: **the software vendor is simultaneously overcharging regional billing hubs and giving away enterprise software for free to multinational factories.**
 
 Consider the structural contrast between `IN-015` (**Google Ireland Limited**) and `IN-016` (**Yazaki Romania S.R.L.**):
-- Google Ireland reports **€86.6 Billion** in booked turnover with **4,882 employees** (~€17.7 Million per head), because it acts as the centralized advertising billing engine for the EMEA region.
-- Yazaki Romania reports **€220 Million** in turnover with **3,623 employees** (~€60,000 per head), operating as a low-margin toll-manufacturing assembly plant for automotive wire harnesses.
+- Google Ireland reports **€86.6 Billion** in booked turnover with **4,882 employees** (~€17.7 Million per head) in published Irish CRO filings, acting as the centralized billing engine for EMEA advertising.
+- Yazaki Romania reports **1,095,214,991 RON** (~**€220.2 Million**) in net turnover with **3,623 employees** (~€60,800 per head) in its official FY2024 Ministry of Finance statutory accounts, operating as a toll-manufacturing assembly plant for automotive wire harnesses.
 
-If the vendor prices tiers by company revenue, Google Ireland is billed at an astronomical tier that sales reps will lose in every audit renegotiation (because the software is only used by local Dublin campus staff), while Yazaki Romania is billed at a modest mid-market tier despite deploying the software across **3,600 industrial workstations**. 
+If the vendor prices tiers by company revenue, Google Ireland is billed at an astronomical enterprise tier that sales reps will lose in every audit renegotiation (because the software is only used by local Dublin campus staff), while Yazaki Romania is billed at a modest mid-market tier despite deploying the software across **3,600 industrial workstations**. 
 
 **Actionable Advice:** The vendor must decouple contract tiering: price multinational operational subsidiaries on **local seat headcount footprint**, and price administrative billing entities strictly on **active internal users**, avoiding the distortion of brass-plate statutory turnover.
 

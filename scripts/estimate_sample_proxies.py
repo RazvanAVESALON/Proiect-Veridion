@@ -7,6 +7,10 @@ Purpose: Implements Part 2: The Detective Route.
          auditable derivation chains, 'how wrong could this be?' sensitivity limits,
          and scalability metrics.
 Governing ADR: DEC-006 (Proxy Estimation Framework & Deliverable Schema)
+
+SUPERSEDED by scripts/verify_figures.py (DEC-008 / DEC-009).
+  The values below were typed in by hand and were never fetched from the sources they cite.
+  Output now goes to data/superseded/ for audit comparison only. Do NOT ship.
 """
 
 import os
@@ -18,10 +22,10 @@ from datetime import datetime, timezone
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 DOSSIER_DIR = os.path.join(DATA_DIR, "evidence_dossiers")
-DELIVERABLE_CSV = os.path.join(DATA_DIR, "client_deliverable_licensee_estimates.csv")
-DOSSIER_MD = os.path.join(DATA_DIR, "proxy_derivations_dossier.md")
+DELIVERABLE_CSV = os.path.join(DATA_DIR, "superseded", "client_deliverable_v0_unverified.csv")
+DOSSIER_MD = os.path.join(DATA_DIR, "superseded", "proxy_derivations_dossier_v0_unverified.md")
 
-os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(os.path.join(DATA_DIR, "superseded"), exist_ok=True)
 
 # Evaluation sample definitions with empirical proxy models
 SAMPLE_ESTIMATIONS = [

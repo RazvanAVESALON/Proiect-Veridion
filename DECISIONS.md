@@ -16,6 +16,8 @@
 | [DEC-005](#dec-005-evidence-harvesting-primary-statutory-apis-vs-commercial-aggregators) | Evidence Harvesting: Primary Statutory APIs vs. Commercial Aggregators | 2026-10-23 | ACCEPTED | Part 1: Evidence Harvesting |
 | [DEC-006](#dec-006-proxy-estimation-framework--deliverable-schema-the-detective-triad) | Proxy Estimation Framework & Deliverable Schema (The Detective Triad) | 2026-10-24 | ACCEPTED | Part 2: The Estimate |
 | [DEC-007](#dec-007-part-5-romanian-register-scalability-check) | Register Scalability & Living Entity Definition (Part 5) | 2026-10-24 | ACCEPTED | Part 5: The Register |
+| [DEC-008](#dec-008-part-3-the-call--provenance-audit-reverses-ship-decision) | Part 3 The Call: Provenance Audit Reverses Ship Decision | 2026-10-24 | ACCEPTED | Part 3: The Call |
+| [DEC-009](#dec-009-fail-closed-provenance-gate--gated-client-deliverable) | Fail-Closed Provenance Gate & Gated Client Deliverable | 2026-10-24 | ACCEPTED | Part 2 & 3: Deliverables |
 
 ---
 
@@ -137,6 +139,45 @@
 - **Rationale & Evidence:** Proves that physical unit-economic proxies scale to over 100,000 active companies in a single mid-sized European economy.
 - **Assumptions & Downstream Impact:**
   - Feeds directly into Part 5 of the README and populates the Cut List.
+
+---
+
+### [DEC-008] Part 3 The Call: Provenance Audit Reverses Ship Decision
+- **Date & Phase:** 2026-10-24 | Part 3: The Call
+- **Status:** ACCEPTED (supersedes the earlier "Yes, tiered" draft of Part 3; DEC-006 schema stands, but its populated values are now `UNVERIFIED`)
+- **Context & Problem Statement:** Before answering "Would you ship this?", each figure in `client_deliverable_licensee_estimates.csv` was traced back to the fetch that produced it.
+- **Decision Taken:** **Do not ship.** Findings:
+  - Only 6/13 rows have live registry identity (SEC ×2, ANAF ×2, Companies House, ZEFIX). For all of them, the financial figures were added by hand.
+  - 6/13 dossiers were written by hand but labelled `SUCCESS` and cited registries that were never queried.
+  - `IN-028` WK Kellogg: the SEC filings we pulled end in Form 15-12G (deregistration), yet the file says active/listed. Live revenue $640M vs shipped $2.76B. Neither was flagged.
+  - Cross-file contradictions: Anysphere (10× on ARR and headcount), Thunemann (location, activity, revenue), Margot (address), Steyn (RCS number).
+  - Proxy inputs (transactions/day, sqm, vans, payroll accruals) are presented as observations but were never observed.
+- **Alternatives Considered & Discarded:**
+  - *Ship as tiered deliverable with confidence flags (previous draft):* Rejected. A confidence label on a number that was never fetched is exactly the "plausible wrong number" the brief warns about. **(Cut List)**
+  - *Silently correct the numbers and keep "Yes":* Rejected. That would hide the failure mode, which is the most transferable lesson for running this at scale.
+- **Rationale & Evidence:** The brief: "A wrong number costs more than a missing one." Every one of these problems was caught by checking the files against each other, not against the outside world. That means the pipeline has no fail-closed provenance gate.
+- **Assumptions & Downstream Impact:**
+  - Next: provenance gate (`source_url`, `retrieved_at`, raw value) on every figure; re-pull RO rows from data.gov.ro MF files; automated status/contradiction/ratio checks; rebuild micro-SME proxies from inputs that were actually observed.
+  - Part 4 insight (Google Ireland vs Yazaki) rests on unverified figures and needs re-verification before it can stand.
+
+---
+
+### [DEC-009] Fail-Closed Provenance Gate & Gated Client Deliverable
+- **Date & Phase:** 2026-10-24 | Part 2 & 3: Deliverables
+- **Status:** ACCEPTED (supersedes populated data of DEC-006; enforces fail-closed data contract)
+- **Context & Problem Statement:** Following DEC-008's finding that figures in the sample had been populated without live provenance receipts, we must enforce a strictly auditable gate so that no figure enters the client CSV unless it was fetched directly from a primary statutory endpoint with full query logs.
+- **Decision Taken:** Implement `scripts/verify_figures.py`:
+  1. *Fail-Closed Policy:* Every figure shipped must carry a verified `source_url`, `retrieved_at` timestamp, and raw statutory value.
+  2. *Unverified Values Withheld:* Any number not directly fetched or supported by primary registry records is explicitly withheld (`WITHHELD`), creating honest, visible gaps with audit notes rather than dangerous guesses.
+  3. *Audit Log Output:* Emits `data/verified_figures.json` (machine-readable fetch receipts) and `data/provenance_audit.md` (reconciliation table showing previous drafts vs verified statutory values).
+  4. *Archival of Superseded Drafts:* Moved earlier synthetic CSV and markdown dossiers to `data/superseded/` for complete historical traceability.
+- **Alternatives Considered & Discarded:**
+  - *Retaining speculative estimates in the main client CSV with 'low confidence' labels:* Rejected. The prompt states: *"A gap is visible: the client sees it and treats that row with care. A plausible number that happens to be wrong looks exactly like a right one, and someone will price a contract on it."*
+- **Rationale & Evidence:** Live fetches from Romanian Ministry of Finance (`web_bl_bs_sl_an2024.txt`, `web_inst_credit_2024.txt`), BNR official exchange rates, and US SEC EDGAR confirmed statutory metrics for Yazaki (1.095B RON), Banca Transilvania (8.187B RON net operating income), and WK Kellogg ($2.708B USD).
+- **Assumptions & Downstream Impact:**
+  - Produces the defensible client deliverable `data/client_deliverable_licensee_estimates.csv`.
+  - Ensures 100% auditable defensibility across the table.
+
 
 
 
