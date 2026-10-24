@@ -1,0 +1,263 @@
+{
+  "1071": {
+    "name": "Artisanal Bakeries & Pastry (CAEN 1071)",
+    "sample_entity": "IN-061 MARGOT BAKERY LIMITED",
+    "overall": {
+      "total_firms": 4858,
+      "median_turnover": 490368.5,
+      "median_employees": 4.0,
+      "tpe_p10": 44018.7,
+      "tpe_p25": 79966.66666666667,
+      "tpe_median": 121480.53846153847,
+      "tpe_p75": 178471.58082706766,
+      "tpe_p90": 263774.80000000005,
+      "tpe_mean": 151495.40120577367,
+      "iqr_tpe": 98504.914160401
+    },
+    "bands": [
+      {
+        "band_name": "Micro (1-4 FTE)",
+        "count": 2599,
+        "share": 53.499382461918486,
+        "median_employees": 2.0,
+        "median_turnover_ron": 203480.0,
+        "tpe_p25_ron": 62963.25,
+        "tpe_median_ron": 103459.0,
+        "tpe_p75_ron": 172047.375,
+        "tpe_median_eur": 20797.451051340813,
+        "median_margin_pct": 0.6880112863270293
+      },
+      {
+        "band_name": "Small Craft Team (5-9 FTE) [Margot Bakery Size]",
+        "count": 993,
+        "share": 20.440510498147386,
+        "median_employees": 6.0,
+        "median_turnover_ron": 776915.0,
+        "tpe_p25_ron": 87751.14285714286,
+        "tpe_median_ron": 120286.125,
+        "tpe_p75_ron": 162139.44444444444,
+        "tpe_median_eur": 24180.05970329273,
+        "median_margin_pct": 1.361295508386931
+      },
+      {
+        "band_name": "Workshop Team (10-19 FTE) [Thunemann Joinery Size]",
+        "count": 669,
+        "share": 13.771099217785096,
+        "median_employees": 13.0,
+        "median_turnover_ron": 1796059.0,
+        "tpe_p25_ron": 101161.94736842105,
+        "tpe_median_ron": 131985.11111111112,
+        "tpe_p75_ron": 181111.42857142858,
+        "tpe_median_eur": 26531.803785452325,
+        "median_margin_pct": 3.3983035473619347
+      },
+      {
+        "band_name": "Medium Business (20-49 FTE)",
+        "count": 415,
+        "share": 8.542610127624537,
+        "median_employees": 29.0,
+        "median_turnover_ron": 4426036.0,
+        "tpe_p25_ron": 116370.65909090909,
+        "tpe_median_ron": 147780.7105263158,
+        "tpe_p75_ron": 185822.3074074074,
+        "tpe_median_eur": 29707.053939274676,
+        "median_margin_pct": 3.7281609875374664
+      },
+      {
+        "band_name": "Industrial / Scaled (50+ FTE)",
+        "count": 182,
+        "share": 3.7463976945244957,
+        "median_employees": 84.5,
+        "median_turnover_ron": 16362299.0,
+        "tpe_p25_ron": 147476.79742424242,
+        "tpe_median_ron": 195382.93074376349,
+        "tpe_p75_ron": 240966.13883946225,
+        "tpe_median_eur": 39276.10878136202,
+        "median_margin_pct": 5.930690033333315
+      }
+    ],
+    "elasticity": {
+      "beta": 1.1590622590708888,
+      "alpha": 11.39095312798695,
+      "interpretation": "Increasing Returns (Automation / Scale)"
+    },
+    "error_metrics": {
+      "mape_mean_pct": 102.37876392137295,
+      "median_absolute_error_pct": 38.066221787156884
+    }
+  },
+  "1623": {
+    "name": "Carpentry & Custom Joinery (CAEN 1623)",
+    "sample_entity": "IN-065 Tischlerei Thunemann KG",
+    "overall": {
+      "total_firms": 828,
+      "median_turnover": 354535.0,
+      "median_employees": 3.0,
+      "tpe_p10": 38289.1,
+      "tpe_p25": 72375.0,
+      "tpe_median": 141446.22474747474,
+      "tpe_p75": 246382.60714285716,
+      "tpe_p90": 444630.3875,
+      "tpe_mean": 230479.0498297385,
+      "iqr_tpe": 174007.60714285716
+    },
+    "bands": [
+      {
+        "band_name": "Micro (1-4 FTE)",
+        "count": 545,
+        "share": 65.82125603864735,
+        "median_employees": 2.0,
+        "median_turnover_ron": 195807.0,
+        "tpe_p25_ron": 59103.666666666664,
+        "tpe_median_ron": 110120.33333333333,
+        "tpe_p75_ron": 221330.0,
+        "tpe_median_eur": 22136.520189227944,
+        "median_margin_pct": 1.0227142145784656
+      },
+      {
+        "band_name": "Small Craft Team (5-9 FTE) [Margot Bakery Size]",
+        "count": 119,
+        "share": 14.371980676328503,
+        "median_employees": 6.0,
+        "median_turnover_ron": 1103971.0,
+        "tpe_p25_ron": 106875.84285714285,
+        "tpe_median_ron": 175225.6,
+        "tpe_p75_ron": 303982.06666666665,
+        "tpe_median_eur": 35224.05821573594,
+        "median_margin_pct": 1.7079847970067092
+      },
+      {
+        "band_name": "Workshop Team (10-19 FTE) [Thunemann Joinery Size]",
+        "count": 76,
+        "share": 9.178743961352657,
+        "median_employees": 12.0,
+        "median_turnover_ron": 1983905.0,
+        "tpe_p25_ron": 96513.04999999999,
+        "tpe_median_ron": 151663.74242424243,
+        "tpe_p75_ron": 220838.52380952382,
+        "tpe_median_eur": 30487.625623013395,
+        "median_margin_pct": 3.173049218807609
+      },
+      {
+        "band_name": "Medium Business (20-49 FTE)",
+        "count": 63,
+        "share": 7.608695652173914,
+        "median_employees": 31.0,
+        "median_turnover_ron": 5900290.0,
+        "tpe_p25_ron": 147349.9623397436,
+        "tpe_median_ron": 201509.13043478262,
+        "tpe_p75_ron": 273191.7098837209,
+        "tpe_median_eur": 40507.604718928684,
+        "median_margin_pct": 3.6545840144901343
+      },
+      {
+        "band_name": "Industrial / Scaled (50+ FTE)",
+        "count": 25,
+        "share": 3.0193236714975846,
+        "median_employees": 73.0,
+        "median_turnover_ron": 18054313.0,
+        "tpe_p25_ron": 214656.26229508198,
+        "tpe_median_ron": 304284.9322033898,
+        "tpe_p75_ron": 382601.953125,
+        "tpe_median_eur": 61167.71845040603,
+        "median_margin_pct": 3.4457835043214127
+      }
+    ],
+    "elasticity": {
+      "beta": 1.1918749287396537,
+      "alpha": 11.5598244065085,
+      "interpretation": "Increasing Returns (Automation / Scale)"
+    },
+    "error_metrics": {
+      "mape_mean_pct": 133.08940598112306,
+      "median_absolute_error_pct": 56.05658902933916
+    }
+  },
+  "5610": {
+    "name": "Restaurants & Food Service (CAEN 5610)",
+    "sample_entity": "Sectoral Benchmark (Table Capacity)",
+    "overall": {
+      "total_firms": 10794,
+      "median_turnover": 644629.5,
+      "median_employees": 4.0,
+      "tpe_p10": 56441.15,
+      "tpe_p25": 106826.76250000001,
+      "tpe_median": 172589.5416666667,
+      "tpe_p75": 261828.91964285716,
+      "tpe_p90": 388916.40000000026,
+      "tpe_mean": 215983.28935035015,
+      "iqr_tpe": 155002.15714285715
+    },
+    "bands": [
+      {
+        "band_name": "Micro (1-4 FTE)",
+        "count": 6087,
+        "share": 56.39244024458032,
+        "median_employees": 2.0,
+        "median_turnover_ron": 266301.0,
+        "tpe_p25_ron": 81627.0,
+        "tpe_median_ron": 149893.0,
+        "tpe_p75_ron": 262238.0,
+        "tpe_median_eur": 30131.668877899734,
+        "median_margin_pct": 0.6604216270703349
+      },
+      {
+        "band_name": "Small Craft Team (5-9 FTE) [Margot Bakery Size]",
+        "count": 2146,
+        "share": 19.88141560125996,
+        "median_employees": 6.0,
+        "median_turnover_ron": 1149254.5,
+        "tpe_p25_ron": 121700.41071428571,
+        "tpe_median_ron": 173590.1,
+        "tpe_p75_ron": 251533.975,
+        "tpe_median_eur": 34895.288063361884,
+        "median_margin_pct": 2.5493405132437137
+      },
+      {
+        "band_name": "Workshop Team (10-19 FTE) [Thunemann Joinery Size]",
+        "count": 1512,
+        "share": 14.007782101167315,
+        "median_employees": 13.0,
+        "median_turnover_ron": 2543800.5,
+        "tpe_p25_ron": 143541.515625,
+        "tpe_median_ron": 192127.2,
+        "tpe_p75_ron": 257428.54545454547,
+        "tpe_median_eur": 38621.63792063684,
+        "median_margin_pct": 5.038028840314672
+      },
+      {
+        "band_name": "Medium Business (20-49 FTE)",
+        "count": 867,
+        "share": 8.032240133407448,
+        "median_employees": 28.0,
+        "median_turnover_ron": 5774718.0,
+        "tpe_p25_ron": 159157.75,
+        "tpe_median_ron": 204996.4090909091,
+        "tpe_p75_ron": 267509.7045454546,
+        "tpe_median_eur": 41208.621615991055,
+        "median_margin_pct": 6.719973059118481
+      },
+      {
+        "band_name": "Industrial / Scaled (50+ FTE)",
+        "count": 182,
+        "share": 1.6861219195849546,
+        "median_employees": 80.0,
+        "median_turnover_ron": 21779339.5,
+        "tpe_p25_ron": 210151.31542481517,
+        "tpe_median_ron": 260898.48865384614,
+        "tpe_p75_ron": 324828.1615456471,
+        "tpe_median_eur": 52446.12404089699,
+        "median_margin_pct": 7.528196572666113
+      }
+    ],
+    "elasticity": {
+      "beta": 1.1551753929712878,
+      "alpha": 11.747196627097528,
+      "interpretation": "Increasing Returns (Automation / Scale)"
+    },
+    "error_metrics": {
+      "mape_mean_pct": 123.31013619189531,
+      "median_absolute_error_pct": 41.01928230989087
+    }
+  }
+}
