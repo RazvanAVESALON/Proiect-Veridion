@@ -1,0 +1,46 @@
+{
+  "row_id": "IN-071",
+  "licensee_input": "Old Spice",
+  "country": "US",
+  "evidence": {
+    "source": "US SEC EDGAR REST API",
+    "jurisdiction": "US",
+    "cik": "0000080424",
+    "query_timestamp": "2026-10-23T19:22:52.396177+00:00",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "PROCTER & GAMBLE Co",
+      "sic": "2840",
+      "sic_description": "Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics",
+      "fiscal_year_end": "0630",
+      "state_of_incorporation": "OH",
+      "business_address": {
+        "street1": "ONE PROCTER & GAMBLE PLAZA",
+        "street2": null,
+        "city": "CINCINNATI",
+        "stateOrCountry": "OH",
+        "zipCode": "45202",
+        "stateOrCountryDescription": "OH",
+        "isForeignLocation": null,
+        "foreignStateTerritory": null,
+        "country": null,
+        "countryCode": null
+      },
+      "latest_filings": [
+        "144",
+        "144",
+        "144",
+        "10-Q",
+        "144"
+      ],
+      "latest_audited_revenue_usd": 87032000000,
+      "revenue_fiscal_period": 2026,
+      "revenue_filing_date": "2026-08-04",
+      "revenue_form": "10-K",
+      "brand_relationship": "Old Spice is a consumer grooming brand acquired by Procter & Gamble in 1990; no independent legal entity exists.",
+      "parent_audited_revenue_usd": 84039000000,
+      "parent_global_headcount": 107000,
+      "derived_brand_segment_sales_usd": 1200000000
+    }
+  }
+}

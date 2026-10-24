@@ -1,0 +1,24 @@
+{
+  "row_id": "IN-016",
+  "licensee_input": "Yazaki Romania S.R.L.",
+  "country": "RO",
+  "evidence": {
+    "source": "Romania ANAF Web Service v9",
+    "jurisdiction": "RO",
+    "cui": 15412557,
+    "query_timestamp": "2026-10-23T19:22:51.362682+00:00",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "YAZAKI ROMANIA S.R.L.",
+      "trade_register_nr": "J29/771/2003",
+      "registered_address": "JUD. PRAHOVA, MUN. PLOIE\u015eTI, STR. SFEREI, NR.7",
+      "postal_code": "",
+      "is_active": true,
+      "tva_payer": true,
+      "audited_turnover_2024_ron": 1095214991,
+      "audited_turnover_2024_eur": 220200000,
+      "average_employees_2024": 3623,
+      "caen_code": "2931 - Fabricarea de echipamente electrice pentru autovehicule"
+    }
+  }
+}

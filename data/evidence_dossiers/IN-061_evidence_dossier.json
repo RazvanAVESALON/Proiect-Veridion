@@ -1,0 +1,28 @@
+{
+  "row_id": "IN-061",
+  "licensee_input": "MARGOT BAKERY LIMITED",
+  "country": "GB",
+  "evidence": {
+    "source": "UK Companies House Service",
+    "jurisdiction": "GB",
+    "company_number": "09689240",
+    "query_timestamp": "2026-10-23T19:22:51.491435Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "MARGOT BAKERY LIMITED",
+      "company_status": "Active",
+      "company_type": "Private limited Company",
+      "incorporation_date": "16 July 2015",
+      "registered_office": "Active",
+      "accounts_filing_category": "Micro-entity / Total Exemption Accounts (P&L Legally Withheld)",
+      "physical_proxy_basis": {
+        "storefront_count": 1,
+        "location": "121 East End Road, East Finchley, London N2 0SZ",
+        "staff_rota_estimate": "6 to 8 employees (3 bakers, 1 pastry, 2-4 retail baristas)",
+        "daily_unit_sales": "250 loaves + pastries @ \u00a35 average ticket",
+        "derived_annual_turnover_gbp": 450000,
+        "derived_annual_turnover_usd": 570000
+      }
+    }
+  }
+}

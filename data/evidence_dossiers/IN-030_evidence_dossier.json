@@ -1,0 +1,25 @@
+{
+  "row_id": "IN-030",
+  "licensee_input": "Banca Transilvania S.A.",
+  "country": "RO",
+  "evidence": {
+    "source": "Romania ANAF Web Service v9",
+    "jurisdiction": "RO",
+    "cui": 5022670,
+    "query_timestamp": "2026-10-23T19:22:51.362682+00:00",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "BANCA TRANSILVANIA SA",
+      "trade_register_nr": "J1993004155124",
+      "registered_address": "JUD. CLUJ, MUN. CLUJ-NAPOCA, CAL. DOROBAN\u0162ILOR, NR.30-36",
+      "postal_code": "",
+      "is_active": true,
+      "tva_payer": true,
+      "operating_income_2024_ron": 8224000000,
+      "net_profit_2024_ron": 3531677657,
+      "headcount_bank_active": 9744,
+      "headcount_group_consolidated": 12000,
+      "metric_integrity_note": "Standard commercial turnover is non-applicable for credit institutions; Operating Income (Venituri Operationale) is the honest metric."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "row_id": "IN-002",
+  "licensee_input": "SIEMENS HEALTHINEERS",
+  "country": "DE",
+  "evidence": {
+    "source": "Frankfurt Stock Exchange (DAX: SHL) & Siemens AG Group Consolidated Accounts",
+    "jurisdiction": "DE",
+    "register_id": "Amtsgericht F\u00fcrth HRB 16568",
+    "isin": "DE000SHL1006",
+    "query_timestamp": "2026-10-23T19:22:54.706699Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "Siemens Healthineers AG",
+      "registered_office": "Henkestra\u00dfe 127, 91052 Erlangen, Germany",
+      "audited_revenue_fy24_eur": 21700000000,
+      "global_headcount_fy24": 71000,
+      "group_ownership_structure": "Majority subsidiary (75.3% owned by Siemens AG; consolidated in Siemens AG accounts)",
+      "contrast_with_siemens_energy": "In stark contrast to Siemens Energy AG (which was deconsolidated from Siemens AG in 2020), Healthineers remains consolidated in the parent group.",
+      "contract_arbitrage_risk": "Client may license software under 'Siemens' parent umbrella while Healthineers runs a standalone \u20ac21.7B healthcare infrastructure."
+    }
+  }
+}

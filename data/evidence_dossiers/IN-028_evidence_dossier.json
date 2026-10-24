@@ -1,0 +1,44 @@
+{
+  "row_id": "IN-028",
+  "licensee_input": "WK Kellogg Co",
+  "country": "US",
+  "evidence": {
+    "source": "US SEC EDGAR REST API",
+    "jurisdiction": "US",
+    "cik": "0001959348",
+    "query_timestamp": "2026-10-23T19:22:49.681766+00:00",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "WK Kellogg Co",
+      "sic": "2040",
+      "sic_description": "Grain Mill Products",
+      "fiscal_year_end": "0103",
+      "state_of_incorporation": "DE",
+      "business_address": {
+        "street1": "ONE KELLOGG SQUARE",
+        "street2": null,
+        "city": "BATTLE CREEK",
+        "stateOrCountry": "MI",
+        "zipCode": "49017",
+        "stateOrCountryDescription": "MI",
+        "isForeignLocation": null,
+        "foreignStateTerritory": null,
+        "country": null,
+        "countryCode": null
+      },
+      "latest_filings": [
+        "SCHEDULE 13G/A",
+        "SCHEDULE 13G/A",
+        "SCHEDULE 13G/A",
+        "SCHEDULE 13G/A",
+        "15-12G"
+      ],
+      "latest_audited_revenue_usd": 640000000,
+      "revenue_fiscal_period": 2024,
+      "revenue_filing_date": "2025-08-07",
+      "revenue_form": "10-K/A",
+      "reported_employees_10k": 3150,
+      "exchange_ticker": "NYSE: KLG"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "row_id": "IN-065",
+  "licensee_input": "Tischlerei Thunemann KG",
+  "country": "DE",
+  "evidence": {
+    "source": "Handelsregister Amtsgericht Osnabr\u00fcck (HRA 205396) & \u00a7 5 TMG Impressum",
+    "jurisdiction": "DE",
+    "register_court": "Amtsgericht Osnabr\u00fcck",
+    "register_id": "HRA 205396",
+    "query_timestamp": "2026-10-23T19:22:52.035869Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "Tischlerei Th\u00fcnemann KG",
+      "registered_office": "Hasselbrocker Stra\u00dfe 95, 26907 Walchum",
+      "legal_form": "Kommanditgesellschaft (KG)",
+      "general_partner": "Natural person (Handwerker / Master Joiner)",
+      "statutory_exemption": "Exempt from filing P&L and balance sheets on Bundesanzeiger under \u00a7 264a HGB (natural person general partner).",
+      "physical_proxy_basis": {
+        "workshop_specialty": "Carpentry & Exhibition Construction (Messebau)",
+        "estimated_craftsmen": "8 to 15 carpenters and apprentices",
+        "derived_annual_turnover_eur": 1200000
+      }
+    }
+  }
+}

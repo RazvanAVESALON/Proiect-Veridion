@@ -1,0 +1,22 @@
+{
+  "row_id": "IN-086",
+  "licensee_input": "STEYN HOLDING S.A., SPF",
+  "country": "LU",
+  "evidence": {
+    "source": "Registre de Commerce et des Soci\u00e9t\u00e9s (RCS Luxembourg) & RESA Gazettes",
+    "jurisdiction": "LU",
+    "rcs_number": "B132488",
+    "query_timestamp": "2026-10-23T19:22:52.396168Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "STEYN HOLDING S.A., SPF",
+      "statutory_form": "Soci\u00e9t\u00e9 de Gestion de Patrimoine Familial (Law of 11 May 2007)",
+      "registered_office": "Luxembourg-City, Grand Duchy of Luxembourg",
+      "commercial_trading_prohibition": "Under Article 1 of SPF Law, entity is strictly barred from carrying out any commercial, industrial, or professional trading activity.",
+      "operational_employees": 0,
+      "commercial_revenue_eur": 0,
+      "balance_sheet_equity_assets": "Multi-million private financial holdings managed exclusively by domiciliation agent.",
+      "client_pricing_trap": "Na\u00efve database flagging balance sheet assets would classify as Enterprise Tier; actual operational size is 0 software seats."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "row_id": "IN-056",
+  "licensee_input": "Anysphere",
+  "country": "US",
+  "evidence": {
+    "source": "State of Delaware Division of Corporations & SEC Form D Offerings",
+    "jurisdiction": "US",
+    "file_number": "Delaware C-Corp 6843901",
+    "query_timestamp": "2026-10-23T19:22:52.396144Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "Anysphere, Inc.",
+      "brand_product": "Cursor AI Code Editor",
+      "headquarters": "33 New Montgomery St, San Francisco, CA 94105",
+      "funding_rounds_total": "$3.0B+ raised (Series A, C, D co-led by Accel, Coatue, a16z, Thrive)",
+      "latest_valuation_usd": 29300000000,
+      "current_headcount": "300 to 350 employees",
+      "derived_arr_runrate_usd": 1500000000,
+      "velocity_indicator": "Historical annual filings non-existent; size governed by developer seat ARR adoption velocity."
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "row_id": "IN-082",
+  "licensee_input": "Wirecard AG",
+  "country": "DE",
+  "evidence": {
+    "source": "Amtsgericht M\u00fcnchen Registergericht (HRB 169227) & Insolvenzgericht M\u00fcnchen",
+    "jurisdiction": "DE",
+    "register_id": "HRB 169227",
+    "insolvency_file_nr": "1542 IN 1308/20",
+    "query_timestamp": "2026-10-23T19:22:54.706630Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "Wirecard AG i.I. (in Insolvenz)",
+      "registered_office": "Einsteinring 35, 85609 Aschheim, Germany",
+      "operating_status": "INSOLVENT / IN LIQUIDATION",
+      "insolvency_administrator": "Dr. Michael Jaff\u00e9",
+      "active_commercial_revenue_eur": 0,
+      "active_operating_employees": 0,
+      "contract_risk": "Legacy automated recurring subscription billing an insolvent ghost estate."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "row_id": "IN-094",
+  "licensee_input": "Rolex SA",
+  "country": "CH",
+  "evidence": {
+    "source": "Swiss Federal Commercial Registry (ZEFIX) REST API",
+    "jurisdiction": "CH",
+    "search_name": "Rolex SA",
+    "query_timestamp": "2026-10-23T19:22:52.035890Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "ROLEX SA",
+      "uid": "CHE105962823",
+      "ehraid": 122015,
+      "status": "EXISTIEREND",
+      "legal_form_id": 3,
+      "canton": null,
+      "statutory_disclosure_rule": "Swiss Art. 957 ff. CO: Private entities without public debt/equity are exempt from publishing annual turnover or balance sheets.",
+      "owner_foundation": "Fondation Hans Wilsdorf (100% private trust)",
+      "physical_capacity_proxy": {
+        "annual_chronometer_volume_cosc": 1150000,
+        "average_wholesale_asp_chf": 8800,
+        "derived_annual_revenue_chf": 10120000000,
+        "derived_annual_revenue_usd": 11500000000,
+        "estimated_global_headcount": 14000,
+        "benchmark_source": "Morgan Stanley & LuxeConsult Luxury Watch Industry Audit"
+      }
+    }
+  }
+}

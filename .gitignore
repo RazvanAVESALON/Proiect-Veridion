@@ -1,0 +1,13 @@
+# Large raw external government snapshots (exceeds GitHub 100MB limit)
+data/OD_FIRME.csv
+data/web_uu_an2024.txt
+data/od_firme_sample.csv
+data/od_stare_sample.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local IDE & agent scratch
+.system_generated/
+*.log

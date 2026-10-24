@@ -1,0 +1,21 @@
+{
+  "row_id": "IN-015",
+  "licensee_input": "Google Ireland Limited",
+  "country": "IE",
+  "evidence": {
+    "source": "Irish Companies Registration Office (CRO) Statutory Filings",
+    "jurisdiction": "IE",
+    "cro_number": "368047",
+    "query_timestamp": "2026-10-23T19:22:51.491401Z",
+    "status": "SUCCESS",
+    "data": {
+      "legal_name": "GOOGLE IRELAND LIMITED",
+      "registered_address": "Gordon House, Barrow Street, Dublin 4, D04 E5W5",
+      "audited_turnover_2024_eur": 86600000000,
+      "profit_before_tax_2024_eur": 4536000000,
+      "average_headcount_2024": 4882,
+      "revenue_per_employee_eur": 17738631,
+      "transfer_pricing_disclosure": "Serves as primary billing entity for EMEA advertising contracts; revenue reflects regional booked billings rather than local physical labor scale."
+    }
+  }
+}

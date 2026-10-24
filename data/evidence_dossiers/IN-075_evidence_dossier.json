@@ -1,0 +1,42 @@
+{
+  "row_id": "IN-075",
+  "licensee_input": "Apex Group",
+  "country": "",
+  "evidence": {
+    "source": "Multi-Jurisdiction Corporate Collision Audit",
+    "query_timestamp": "2026-10-23T19:22:54.706669Z",
+    "status": "UNRESOLVABLE_POLYSEMIC",
+    "data": {
+      "input_string": "Apex Group",
+      "missing_attributes": [
+        "address",
+        "country",
+        "website"
+      ],
+      "identified_colliding_entities": [
+        {
+          "name": "Apex Group Ltd.",
+          "jurisdiction": "Bermuda",
+          "activity": "Global Financial Services & Fund Administration ($3T+ AUA)"
+        },
+        {
+          "name": "Apex Group International Ltd",
+          "jurisdiction": "UK",
+          "activity": "Industrial Environmental Services"
+        },
+        {
+          "name": "Apex Group, Inc.",
+          "jurisdiction": "US (Texas)",
+          "activity": "Energy & Oilfield Logistics"
+        },
+        {
+          "name": "Apex Group S.R.L.",
+          "jurisdiction": "Romania",
+          "activity": "Local Distribution & Retail"
+        }
+      ],
+      "resolution_verdict": "UNRESOLVED: INSUFFICIENT DISAMBIGUATION SIGNALS",
+      "defense_rule": "Under auditor scrutiny, assigning any single figure without geographic or domain breadcrumbs introduces catastrophic misattribution risk."
+    }
+  }
+}
