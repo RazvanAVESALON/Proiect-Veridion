@@ -771,6 +771,7 @@ html_template = f"""<!DOCTYPE html>
         <a href="#leakage" class="nav-btn">Financial Leakage ($4.2M)</a>
         <a href="#samples" class="nav-btn">13 Sample Explorer</a>
         <a href="#calibration" class="nav-btn">Empirical Calibration</a>
+        <a href="#architecture" class="nav-btn">600M Scale Architecture</a>
         <a href="#archetypes" class="nav-btn">10 Archetypes</a>
       </nav>
     </div>
@@ -1102,7 +1103,12 @@ for s in sample_entities:
                 <h3 class="sample-name">{s['Input_Name']}</h3>
                 <div class="sample-statutory-id">{s['Matched_Legal_Entity']} ({s['Statutory_ID']})</div>
               </div>
-              <span class="status-tag {tag_class}">{s['Audit_Verdict']}</span>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+                <span class="status-tag {tag_class}">{s['Audit_Verdict']}</span>
+                <span class="status-tag" style="background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.35);">
+                  Score: {s.get('Audit_Confidence_Score', 'N/A')}/100 ({s.get('Confidence_Grade', 'N/A').split(' ')[0]})
+                </span>
+              </div>
             </div>
 
             <div class="sample-estimates">
@@ -1231,6 +1237,76 @@ html_template += """
         <div style="background: var(--bg-card); padding: 18px; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-emerald); font-size: 13px;">
           <strong>Cross-Border Validation Result:</strong> Romanian craft median (€24,180) &times; UK London living wage & artisanal price ratio (2.8&times;) = <strong>£65,000 / worker</strong>.
           For Margot Bakery's 7 FTE: <code>7 &times; £65k = £455,000 (~$580,000 USD)</code>, falling squarely within our modeled range <strong>[£400k - £600k]</strong> with empirical proof!
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: 600M Production Architecture & Scoring Engine -->
+    <section id="architecture">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Production Architecture & 600M Scaling Engine</h2>
+          <p class="section-subtitle">Operationalizing indirect economic proxies across Veridion's global catalog via distributed Delta Lakehouse and formal audit scoring.</p>
+        </div>
+      </div>
+
+      <div class="calibration-section" style="margin-bottom: 32px;">
+        <h3 style="font-size: 18px; margin-bottom: 8px; color: #fff;">Mathematical Audit Confidence Scoring Function</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+          Eliminates subjective confidence labels. Every emitted figure carries a deterministic, reproducible score:
+        </p>
+
+        <div style="background: var(--bg-card); padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-violet); margin-bottom: 24px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #fff;">
+          S = max(0, min(100, 0.30 &times; S_id + 0.25 &times; S_temp + 0.35 &times; S_primacy - P_opacity))
+        </div>
+
+        <div class="sim-output-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+          <div class="sim-output-card">
+            <div class="sim-card-title">S_id (Weight 0.30)</div>
+            <div class="sim-card-val" style="color: var(--accent-cyan); font-size: 20px;">Identity Precision</div>
+            <div class="sim-card-sub">Statutory CUI/LEI: 100p &bull; Verified Domain: 80p &bull; Polysemic: &lt;15p (Refusal Gate)</div>
+          </div>
+
+          <div class="sim-output-card">
+            <div class="sim-card-title">S_temp (Weight 0.25)</div>
+            <div class="sim-card-val" style="color: var(--accent-emerald); font-size: 20px;">Temporal Half-Life</div>
+            <div class="sim-card-sub">Continuous decay: e^(-&lambda;&bull;&Delta;t). Statutory t_half = 3.5y &bull; VC Startup t_half = 0.75y</div>
+          </div>
+
+          <div class="sim-output-card">
+            <div class="sim-card-title">S_primacy (Weight 0.35)</div>
+            <div class="sim-card-val" style="color: var(--accent-amber); font-size: 20px;">Source Grounding</div>
+            <div class="sim-card-sub">Statutory Filings: 100p &bull; Calibrated Physical Proxies: 75p &bull; Web Scrapers: 10p (Discarded)</div>
+          </div>
+
+          <div class="sim-output-card">
+            <div class="sim-card-title">P_opacity (Penalty)</div>
+            <div class="sim-card-val" style="color: var(--accent-rose); font-size: 20px;">Structural Penalty</div>
+            <div class="sim-card-sub">Transfer Hubs: -25p &bull; Brand Scope Breach: -25p &bull; P&L Withheld: -15p</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="archetypes-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        <div class="archetype-card" style="border-top: 3px solid #cd7f32;">
+          <div class="archetype-number">BRONZE LAKEHOUSE LAYER</div>
+          <div class="archetype-title">Raw Multi-Registry CDC Ingestion</div>
+          <div class="archetype-desc">Distributed Delta Lake ingestion of national registries (4.1M RO, 5.5M UK, 2M SEC, LEI, web shopfronts). Real-time Kafka CDC tracks insolvency court decrees and Form 15-12G deregistrations.</div>
+          <div class="archetype-fix">Technology: Delta Lake &bull; Apache Kafka &bull; Parquet</div>
+        </div>
+
+        <div class="archetype-card" style="border-top: 3px solid #c0c0c0;">
+          <div class="archetype-number">SILVER LAKEHOUSE LAYER</div>
+          <div class="archetype-title">Probabilistic Resolution & Hierarchy Graph</div>
+          <div class="archetype-desc">Splink entity resolution on corporate identifiers. GraphFrames corporate DAG classifies EMEA transfer hubs from operating manufacturing plants via divergence metric &Delta;_transfer &gt; 1.5.</div>
+          <div class="archetype-fix">Technology: Splink &bull; GraphFrames &bull; NACE Mappings</div>
+        </div>
+
+        <div class="archetype-card" style="border-top: 3px solid #ffd700;">
+          <div class="archetype-number">GOLD LAKEHOUSE LAYER</div>
+          <div class="archetype-title">Elasticity-Gated Proxy Inference</div>
+          <div class="archetype-desc">Spark workers dispatch physical unit-economic proxies strictly to micro-cohorts (&lt;25 FTE based on empirical &beta;=1.159). Continuous automated Benford's Law testing and turnover/head anomaly alerts.</div>
+          <div class="archetype-fix">Technology: PySpark UDFs &bull; dbt &bull; Great Expectations</div>
         </div>
       </div>
     </section>
